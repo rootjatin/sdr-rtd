@@ -2,7 +2,7 @@ for rtl std : <br>
 python3 sdr_canvas.py --device /dev/video2 --freq 100e6 --rate 2.4e6 --gain -1 \
   --fft 2048 --avg 8 --overlap 0.5 --auto-range --preview
 
-Peak hold (nice for sweeping a slewable dish):
+Peak hold (nice for sweeping a slewable dish): <br>
 python3 sdr_canvas.py --peak-hold --peak-decay 0.99 --auto-range --preview
 
 for hackrf one : <br>

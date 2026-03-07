@@ -1,0 +1,29 @@
+// Arduino Uno / Nano / Pro Mini
+// Generate the maximum square wave on pin 9 (OC1A)
+// Expected frequency on 16 MHz board: 8 MHz
+
+void setup() {
+  pinMode(9, OUTPUT);   // OC1A = digital pin 9
+
+  // Stop Timer1
+  TCCR1A = 0;
+  TCCR1B = 0;
+  TCNT1  = 0;
+
+  // Toggle OC1A on compare match
+  TCCR1A = _BV(COM1A0);
+
+  // CTC mode, TOP = OCR1A
+  TCCR1B = _BV(WGM12);
+
+  // No prescaler
+  TCCR1B |= _BV(CS10);
+
+  // OCR1A = 0 gives maximum frequency: F_CPU / 2
+  OCR1A = 0;
+}
+
+void loop() {
+  // Nothing needed
+}
+
